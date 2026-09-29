@@ -1,0 +1,328 @@
+[
+  {
+    "code": "MAHA-EBC-2024",
+    "title": "Rajarshi Chhatrapati Shahu Maharaj Shikshan Shulkh Shishyavrutti Yojna",
+    "title_hi": "राजर्षि छत्रपति शाहू महाराज शिक्षण शुल्क छात्रवृत्ति योजना",
+    "title_mr": "राजर्षी छत्रपती शाहू महाराज शिक्षण शुल्क शिष्यवृत्ती योजना (ईबीसी)",
+    "ministry": "Higher and Technical Education Department, Government of Maharashtra",
+    "department": "Directorate of Higher Education",
+    "state": "Maharashtra",
+    "category": "Education",
+    "target_audience": "Economically Weaker and Open/OBC Higher Education Students",
+    "description": "Financial assistance providing 50% tuition fee and exam fee reimbursement to students admitted under higher education professional/non-professional degree and diploma courses in Maharashtra.",
+    "description_hi": "महाराष्ट्र में उच्च शिक्षा व्यावसायिक और गैर-व्यावसायिक डिग्री एवं डिप्लोमा पाठ्यक्रमों में प्रवेश लेने वाले छात्रों को 50% शिक्षण शुल्क और परीक्षा शुल्क प्रतिपूर्ति प्रदान करने वाली योजना।",
+    "description_mr": "महाराष्ट्रात उच्च आणि तंत्रशिक्षण, पदविका आणि पदवी अभ्यासक्रमांसाठी प्रवेश घेतलेल्या आर्थिकदृष्ट्या दुर्बल घटकातील विद्यार्थ्यांसाठी ५०% शिक्षण शुल्क आणि परीक्षा शुल्क प्रतिपूर्ती योजना.",
+    "benefits_summary": "50% tuition fee and 50% exam fee reimbursement transferred directly to verified bank account (DBT).",
+    "application_url": "https://mahadbt.maharashtra.gov.in/",
+    "deadline": "31-03-2025",
+    "is_active": true,
+    "is_demo": false,
+    "rules": [
+      {
+        "rule_name": "Maharashtra Domicile Requirement",
+        "field": "state",
+        "operator": "==",
+        "value": "Maharashtra",
+        "is_required": true,
+        "failure_reason": "Applicant must be a permanent resident of Maharashtra."
+      },
+      {
+        "rule_name": "Active Student Status",
+        "field": "is_student",
+        "operator": "==",
+        "value": true,
+        "is_required": true,
+        "failure_reason": "Applicant must currently be an enrolled student in an accredited college or polytechnic."
+      },
+      {
+        "rule_name": "Annual Family Income Ceiling (<= 8 Lakhs)",
+        "field": "annual_income",
+        "operator": "<=",
+        "value": 800000.0,
+        "is_required": true,
+        "failure_reason": "Annual family income must not exceed Rs 8,00,000."
+      }
+    ],
+    "required_documents": [
+      {
+        "document_type": "INCOME_CERTIFICATE",
+        "is_mandatory": true,
+        "description": "Tahasildar issued income certificate for current financial year"
+      },
+      {
+        "document_type": "STUDENT_ID",
+        "is_mandatory": true,
+        "description": "College / Polytechnic Bonafide or Student ID card"
+      }
+    ]
+  },
+  {
+    "code": "MAHA-OBC-PMSC",
+    "title": "Post Matric Scholarship to OBC Students (MahaDBT)",
+    "title_hi": "ओबीसी छात्रों के लिए पोस्ट मैट्रिक छात्रवृत्ति योजना",
+    "title_mr": "इतर मागासवर्गीय (OBC) विद्यार्थ्यांसाठी मॅट्रिकोत्तर शिष्यवृत्ती योजना",
+    "ministry": "OBC, SEBC, VJNT & SBC Welfare Department, Government of Maharashtra",
+    "department": "Directorate of Other Backward Bahujan Kalyan",
+    "state": "Maharashtra",
+    "category": "Education",
+    "target_audience": "OBC Students pursuing Diploma, Degree, or Post-Graduate studies",
+    "description": "Comprehensive scholarship covering 100% tuition fees, exam fees, and maintenance allowance for eligible Other Backward Class students across Maharashtra colleges.",
+    "description_hi": "महाराष्ट्र के कॉलेजों में पात्र अन्य पिछड़ा वर्ग के छात्रों के लिए 100% शिक्षण शुल्क, परीक्षा शुल्क और निर्वाह भत्ता कवर करने वाली छात्रवृत्ति।",
+    "description_mr": "महाराष्ट्र राज्यातील इतर मागासवर्गीय (ओबीसी) विद्यार्थ्यांच्या उच्च शिक्षणासाठी १००% शिक्षण शुल्क, परीक्षा शुल्क आणि विद्यावेतन देणारी योजना.",
+    "benefits_summary": "100% tuition and exam fee waiver + monthly maintenance allowance up to Rs 1,200.",
+    "application_url": "https://mahadbt.maharashtra.gov.in/",
+    "deadline": "15-04-2025",
+    "is_active": true,
+    "is_demo": false,
+    "rules": [
+      {
+        "rule_name": "Maharashtra Residence",
+        "field": "state",
+        "operator": "==",
+        "value": "Maharashtra",
+        "is_required": true,
+        "failure_reason": "Applicant must reside in Maharashtra."
+      },
+      {
+        "rule_name": "OBC Category Only",
+        "field": "category",
+        "operator": "IN",
+        "value": ["OBC", "SBC", "VJNT"],
+        "is_required": true,
+        "failure_reason": "Applicant must belong to recognized OBC/VJNT/SBC category."
+      },
+      {
+        "rule_name": "Annual Family Income Ceiling (<= 3.0 Lakhs)",
+        "field": "annual_income",
+        "operator": "<=",
+        "value": 300000.0,
+        "is_required": true,
+        "failure_reason": "Family annual income must not exceed Rs 3,00,000 for this quota."
+      },
+      {
+        "rule_name": "Enrolled Student Status",
+        "field": "is_student",
+        "operator": "==",
+        "value": true,
+        "is_required": true,
+        "failure_reason": "Must be an active student."
+      }
+    ],
+    "required_documents": [
+      {
+        "document_type": "INCOME_CERTIFICATE",
+        "is_mandatory": true,
+        "description": "Income certificate issued by competent authority"
+      },
+      {
+        "document_type": "STUDENT_ID",
+        "is_mandatory": true,
+        "description": "College ID or Admission Confirmation Receipt"
+      },
+      {
+        "document_type": "CASTE_CERTIFICATE",
+        "is_mandatory": true,
+        "description": "Sub-Divisional Magistrate verified Caste Certificate"
+      }
+    ]
+  },
+  {
+    "code": "MAHA-YOUTH-INTERN-2024",
+    "title": "Mukhyamantri Yuva Karya Prashikshan Yojana",
+    "title_hi": "मुख्यमंत्री युवा कार्य प्रशिक्षण योजना",
+    "title_mr": "मुख्यमंत्री युवा कार्य प्रशिक्षण योजना (लाडका भाऊ योजना)",
+    "ministry": "Skill Development, Employment and Entrepreneurship Department, Maharashtra",
+    "department": "Directorate of Vocational Education and Training",
+    "state": "Maharashtra",
+    "category": "Youth Skill & Employment",
+    "target_audience": "Youth aged 18 to 35 seeking 6-month on-the-job industrial apprenticeship",
+    "description": "State internship initiative providing monthly stipends up to Rs 10,000 to 12th pass, ITI, Diploma, and Graduate youth during industrial training with accredited private and public sector enterprises.",
+    "description_hi": "12वीं पास, आईटीआई, डिप्लोमा और स्नातक युवाओं को औद्योगिक प्रशिक्षण के दौरान 10,000 रुपये तक मासिक वजीफा प्रदान करने वाली इंटर्नशिप योजना।",
+    "description_mr": "महाराष्ट्रातील १२ वी उत्तीर्ण, आयटीआय, पदविका (डिप्लोमा) आणि पदवीधर युवकांना औद्योगिक प्रशिक्षणादरम्यान दरमहा ६,००० ते १०,००० रुपये विद्यावेतन देणारी योजना.",
+    "benefits_summary": "Monthly government stipend: Rs 6,000 (12th pass), Rs 8,000 (Diploma/ITI), Rs 10,000 (Degree/PG) for 6 months.",
+    "application_url": "https://rojgar.mahaswayam.gov.in/",
+    "deadline": "Open Round 2024-2025",
+    "is_active": true,
+    "is_demo": false,
+    "rules": [
+      {
+        "rule_name": "Age Qualification (18 to 35 years)",
+        "field": "age",
+        "operator": ">=",
+        "value": 18,
+        "is_required": true,
+        "failure_reason": "Applicant must be at least 18 years old."
+      },
+      {
+        "rule_name": "Maximum Age Limit",
+        "field": "age",
+        "operator": "<=",
+        "value": 35,
+        "is_required": true,
+        "failure_reason": "Applicant must be 35 years or younger."
+      },
+      {
+        "rule_name": "Maharashtra Residence",
+        "field": "state",
+        "operator": "==",
+        "value": "Maharashtra",
+        "is_required": true,
+        "failure_reason": "Must reside in Maharashtra."
+      }
+    ],
+    "required_documents": [
+      {
+        "document_type": "STUDENT_ID",
+        "is_mandatory": false,
+        "description": "Educational Marksheet or Passing Certificate"
+      },
+      {
+        "document_type": "INCOME_CERTIFICATE",
+        "is_mandatory": false,
+        "description": "Income document (optional for general eligibility)"
+      }
+    ]
+  },
+  {
+    "code": "CENTRAL-PM-KISAN",
+    "title": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+    "title_hi": "प्रधानमंत्री किसान सम्मान निधि (पीएम-किसान)",
+    "title_mr": "प्रधानमंत्री किसान सन्मान निधी (पीएम-किसान)",
+    "ministry": "Ministry of Agriculture and Farmers Welfare, Government of India",
+    "department": "Department of Agriculture and Cooperation",
+    "state": "All India",
+    "category": "Agriculture",
+    "target_audience": "Small and Marginal Landholder Farmer Families",
+    "description": "Central Sector scheme providing income support of Rs 6,000 per year in three equal 4-monthly installments directly to bank accounts of landholding farmers.",
+    "description_hi": "भूमिधारक किसान परिवारों के बैंक खातों में प्रत्यक्ष रूप से प्रति वर्ष 6,000 रुपये की आय सहायता तीन समान किस्तों में प्रदान करने वाली केंद्रीय योजना।",
+    "description_mr": "देशातील सर्व जमीनधारक शेतकरी कुटुंबांना दरवर्षी ६,००० रुपये थेट बँक खात्यात तीन समान हप्त्यांमध्ये आर्थिक सहाय्य देणारी केंद्र शासनाची योजना.",
+    "benefits_summary": "Direct financial benefit of Rs 6,000 per year credited in three installments of Rs 2,000 each.",
+    "application_url": "https://pmkisan.gov.in/",
+    "deadline": "Continuous Enrolment",
+    "is_active": true,
+    "is_demo": false,
+    "rules": [
+      {
+        "rule_name": "Farmer Status",
+        "field": "is_farmer",
+        "operator": "==",
+        "value": true,
+        "is_required": true,
+        "failure_reason": "Applicant or family must be engaged in cultivation on cultivable land."
+      },
+      {
+        "rule_name": "Occupation Qualification",
+        "field": "occupation",
+        "operator": "==",
+        "value": "Farmer",
+        "is_required": true,
+        "failure_reason": "Applicant primary occupation must be agriculture."
+      }
+    ],
+    "required_documents": [
+      {
+        "document_type": "LAND_7_12_EXTRACT",
+        "is_mandatory": true,
+        "description": "7/12 Land Record document proving cultivable land ownership"
+      },
+      {
+        "document_type": "AADHAAR",
+        "is_mandatory": true,
+        "description": "Aadhaar Card linked with active NPCI bank account"
+      }
+    ]
+  },
+  {
+    "code": "CENTRAL-STANDUP-INDIA",
+    "title": "Stand-Up India Scheme for Greenfield Enterprises",
+    "title_hi": "स्टैंड-अप इंडिया योजना",
+    "title_mr": "स्टँड-अप इंडिया योजना (उद्योजकता कर्ज)",
+    "ministry": "Ministry of Finance, Government of India",
+    "department": "Department of Financial Services",
+    "state": "All India",
+    "category": "Business",
+    "target_audience": "SC, ST, and Women Entrepreneurs setting up new greenfield enterprises",
+    "description": "Facilitates bank loans between Rs 10 Lakhs and Rs 1 Crore to at least one SC/ST borrower and at least one woman borrower per bank branch for setting up greenfield manufacturing, services, or trading enterprises.",
+    "description_hi": "हर बैंक शाखा से कम से कम एक एससी/एसटी और एक महिला उद्यमी को विनिर्माण, सेवा या व्यापार में नए उद्यम स्थापित करने के लिए 10 लाख से 1 करोड़ रुपये तक का ऋण।",
+    "description_mr": "नवीन उत्पादन, सेवा किंवा व्यापार उद्योग सुरू करण्यासाठी अनुसूचित जाती, जमाती किंवा महिला उद्योजकांना १० लाख ते १ कोटी रुपयांपर्यंतचे बँक कर्ज मिळवून देणारी योजना.",
+    "benefits_summary": "Collateral-facilitated bank loans from Rs 10 Lakhs to Rs 1 Crore with composite credit and margin support.",
+    "application_url": "https://www.standupmitra.in/",
+    "deadline": "Ongoing",
+    "is_active": true,
+    "is_demo": false,
+    "rules": [
+      {
+        "rule_name": "Entrepreneur / Business Status",
+        "field": "is_business",
+        "operator": "==",
+        "value": true,
+        "is_required": true,
+        "failure_reason": "Applicant must be an active entrepreneur establishing a greenfield business."
+      },
+      {
+        "rule_name": "Eligible Target Groups",
+        "field": "category",
+        "operator": "IN",
+        "value": ["SC", "ST", "Women", "General"],
+        "is_required": true,
+        "failure_reason": "Enterprise must have at least 51% shareholding held by SC, ST, or Woman entrepreneur."
+      }
+    ],
+    "required_documents": [
+      {
+        "document_type": "PROJECT_REPORT",
+        "is_mandatory": true,
+        "description": "Detailed business project report and machinery quotation"
+      },
+      {
+        "document_type": "PAN_CARD",
+        "is_mandatory": true,
+        "description": "PAN card and enterprise registration / Udyam Certificate"
+      }
+    ]
+  },
+  {
+    "code": "DEMO-CM-FELLOWSHIP",
+    "title": "[DEMO] Chief Minister Higher Fellowship Program",
+    "title_hi": "[DEMO] मुख्यमंत्री फेलोशिप कार्यक्रम",
+    "title_mr": "[DEMO] मुख्यमंत्री उच्च फेलोशिप कार्यक्रम",
+    "ministry": "Planning Department, Government of Maharashtra",
+    "department": "Chief Minister Transformation Cell",
+    "state": "Maharashtra",
+    "category": "Youth Skill & Employment",
+    "target_audience": "Experienced Professionals and Post-Graduates aged 25 to 30",
+    "description": "A prestigious 1-year governance fellowship placed directly with District Collectors and State Administrative Departments.",
+    "description_hi": "जिला कलेक्टरों और प्रशासनिक विभागों के साथ सीधे तौर पर 1 वर्ष की प्रतिष्ठित शासन फेलोशिप।",
+    "description_mr": "जिल्हाधिकारी व शासकीय विभागांसोबत धोरण व विकासात्मक कामांसाठी १ वर्षाची विशेष फेलोशिप.",
+    "benefits_summary": "Monthly stipend of Rs 75,000 + Rs 5,000 travel allowance.",
+    "application_url": "https://mahades.maharashtra.gov.in/",
+    "deadline": "30-06-2025",
+    "is_active": true,
+    "is_demo": true,
+    "rules": [
+      {
+        "rule_name": "Minimum Age (Must be >= 25)",
+        "field": "age",
+        "operator": ">=",
+        "value": 25,
+        "is_required": true,
+        "failure_reason": "Applicant must be at least 25 years old to qualify for this fellowship."
+      },
+      {
+        "rule_name": "Maximum Age (Must be <= 30)",
+        "field": "age",
+        "operator": "<=",
+        "value": 30,
+        "is_required": true,
+        "failure_reason": "Applicant cannot exceed 30 years of age."
+      }
+    ],
+    "required_documents": [
+      {
+        "document_type": "DEGREE_CERTIFICATE",
+        "is_mandatory": true,
+        "description": "Post-Graduate or First Class Degree Certificate"
+      }
+    ]
+  }
+]
