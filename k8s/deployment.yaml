@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: finsaarthi-backend
+  labels:
+    app: finsaarthi-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: finsaarthi-backend
+  template:
+    metadata:
+      labels:
+        app: finsaarthi-backend
+    spec:
+      containers:
+      - name: backend
+        image: finsaarthi/backend:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: finsaarthi-secrets
+              key: database-url
+        - name: REDIS_URL
+          value: "redis://finsaarthi-redis:6379/0"
+        - name: CHROMA_HOST
+          value: "finsaarthi-chroma"
+        - name: GEMINI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: finsaarthi-secrets
+              key: gemini-api-key
+              optional: true
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: finsaarthi-frontend
+  labels:
+    app: finsaarthi-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: finsaarthi-frontend
+  template:
+    metadata:
+      labels:
+        app: finsaarthi-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: finsaarthi/frontend:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "100m"
+            memory: "256Mi"

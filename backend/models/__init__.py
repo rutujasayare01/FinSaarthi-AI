@@ -1,0 +1,21 @@
+from backend.models.all_models import (
+    User,
+    UserProfile,
+    Document,
+    DocumentExtraction,
+    Scheme,
+    SchemeRule,
+    SchemeDocument,
+    SchemeUpdate,
+    EligibilityCheck,
+    EligibilityResult,
+    SearchHistory,
+    UserInterest,
+    SavedScheme,
+    Notification,
+    NotificationPreference,
+    Application,
+    AuditLog,
+    AdminUser,
+    AnalyticsEvent
+)

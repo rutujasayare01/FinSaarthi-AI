@@ -1,0 +1,112 @@
+# ==============================================================================
+# FinSaarthi AI - Git Ignore Specification
+# ==============================================================================
+
+# Environment and Secrets (CRITICAL: Never commit credentials)
+.env
+.env.*
+.env.local
+.env.production
+.env.development
+!.env.example
+
+# Python virtual environments & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+env/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+/lib/
+/lib64/
+!frontend/src/lib/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+htmlcov/
+
+# Node.js & Next.js
+frontend/node_modules/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+frontend/.next/
+.next/
+frontend/out/
+out/
+frontend/build/
+
+# Local databases & Vector storage (Dynamic run-time generated data)
+*.db
+*.sqlite
+*.sqlite3
+backend/data/chroma_db/
+chroma_db/
+
+# Uploads & Private user documents
+backend/data/uploads/
+uploads/
+private_uploads/
+
+# Large local datasets & ML models
+data/raw/
+datasets/
+*.pkl
+*.joblib
+*.onnx
+*.bin
+*.pt
+*.pth
+*.h5
+
+# Logs
+*.log
+logs/
+
+# IDE & Editor artifacts
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# Temporary files
+tmp/
+temp/

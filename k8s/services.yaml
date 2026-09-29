@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: finsaarthi-backend
+spec:
+  selector:
+    app: finsaarthi-backend
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: finsaarthi-frontend
+spec:
+  selector:
+    app: finsaarthi-frontend
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000

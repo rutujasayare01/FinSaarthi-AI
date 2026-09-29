@@ -1,0 +1,108 @@
+version: '3.8'
+
+services:
+  # 1. API Gateway (NGINX)
+  nginx:
+    image: nginx:alpine
+    container_name: finsaarthi_gateway
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - backend
+      - frontend
+    restart: always
+
+  # 2. Frontend (Next.js PWA)
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: finsaarthi_frontend
+    environment:
+      - PORT=3000
+      - BACKEND_INTERNAL_URL=http://backend:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: always
+
+  # 3. Backend Services (FastAPI)
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: finsaarthi_backend
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/finsaarthi
+      - REDIS_URL=redis://redis:6379/0
+      - CHROMA_HOST=chromadb
+      - CHROMA_PORT=8000
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - BHASHINI_API_KEY=${BHASHINI_API_KEY:-}
+      - DEMO_MODE=true
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+      - chromadb
+    restart: always
+
+  # 4. Celery Background Worker
+  celery_worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: finsaarthi_worker
+    command: ["celery", "-A", "backend.workers.celery_tasks.celery_app", "worker", "--loglevel=info"]
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/finsaarthi
+      - REDIS_URL=redis://redis:6379/0
+      - CHROMA_HOST=chromadb
+      - CHROMA_PORT=8000
+    depends_on:
+      - backend
+      - redis
+    restart: always
+
+  # 5. Primary Database (PostgreSQL)
+  postgres:
+    image: postgres:16-alpine
+    container_name: finsaarthi_postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=finsaarthi
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+  # 6. Cache & Queue (Redis)
+  redis:
+    image: redis:7-alpine
+    container_name: finsaarthi_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: always
+
+  # 7. Vector Database (ChromaDB)
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: finsaarthi_chroma
+    ports:
+      - "8001:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    restart: always
+
+volumes:
+  postgres_data:
+  redis_data:
+  chroma_data:

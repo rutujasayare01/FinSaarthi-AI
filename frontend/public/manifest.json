@@ -1,0 +1,21 @@
+{
+  "name": "FinSaarthi - Government Scheme Discovery & Eligibility",
+  "short_name": "FinSaarthi",
+  "description": "Intelligent multilingual platform for government schemes, deterministic eligibility evaluation, and AI assistance.",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#0C2340",
+  "theme_color": "#1E3A8A",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
